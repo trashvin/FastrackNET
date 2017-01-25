@@ -1,0 +1,145 @@
+﻿@using Common;
+@{
+    FASTProcess.EmployeeProcess employeeProcess = new FASTProcess.EmployeeProcess();
+    vwDepartmentList department = (vwDepartmentList)TempData["Department"];
+    ViewBag.Title = department.DepartmentName + " - Department";
+
+    List<vwDepartmentList> departmentList = ViewBag.MyDepartments;
+    List<vwAssetAssignmentsForManager> approvals = ViewBag.Approvals;
+
+    var list = new WebGrid(approvals, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+
+
+}
+<br />
+
+<div class="container-fluid">
+
+    <div>
+        <div class="panel-info col-lg-3">
+            <div class="panel-heading">
+                <span class="panel-title" />
+            </div>
+            <div class="panel-body" style="background-color:aliceblue">
+                <center>
+                    <img src="~/Images/department.jpg" width="200" height="200" class="img-rounded" />
+                </center>
+            </div>
+            <div class="panel-body" style="background-color:whitesmoke">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Employee ID">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Search</button>
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body panel-primary" style="background-color:whitesmoke">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Manage</h4>
+                </div>
+                <div class="list-group list-group-item-info">
+                    <a class="list-group-item" href="@Url.Action("ShowDepartmentEmployee", "Employee", new { departmentID = department.DepartmentID })"><span class="glyphicon glyphicon-th-list text-danger" aria-hidden="true"></span>Employees</a>
+                    <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-th-list text-danger" aria-hidden="true"></span>Assignments</a>
+                    <a class="list-group-item" href="@Url.Action("Unavailable", "Home")"><span class="glyphicon glyphicon-th-list text-danger" aria-hidden="true"></span>Approvals</a>
+                </div>
+            </div>
+            <div class="panel-body panel-primary" style="background-color:whitesmoke">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Reports</h4>
+                </div>
+                <div class="list-group list-group-item-info">
+                    <div class="btn-group btn-block">
+                        <div class="btn-group btn-block">
+                            <a class="list-group-item dropdown-toggle btn-block" aria-expanded="true" href="#" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>Employees
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="list-group-item" href="@Url.Action("ShowDepartmentEmployee", "Employee", new { departmentID = department.DepartmentID })">List of Employees</a></li>
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">Employee Accountability Form</a></li>
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">Employee Asset Assignment History</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-block">
+                        <div class="btn-group btn-block">
+                            <a class="list-group-item dropdown-toggle btn-block" aria-expanded="true" href="#" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>Assignment Reports
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">List of Assignments per Employee</a></li>
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">Assignment Approvals</a></li>
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">Asset Assignments</a></li>
+                                <li><a class="list-group-item" href="@Url.Action("Unavailable","Home")">Department Assets</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-body" style="background-color:snow;height:50px">
+            </div>
+
+        </div>
+        <div class="panel-info col-lg-9">
+            <div class="panel-info">
+                <div class="panel-body" style="height: 200px;background-image:url('../Images/fujitsu_infinity_1.png');background-repeat:no-repeat;background-position:right">
+                    <h2>@department.GroupName</h2>
+                    @*<blockquote>
+                            <h4>Number of employees : 12</h4>
+                            <h4>Number of assets assigned :</h4>
+                        </blockquote>*@
+<p style="padding-left:10px"><span class="glyphicon glyphicon-bookmark text-success"></span>For Approval <span class="badge">(@approvals.Count().ToString())</span><br />
+</div>
+            </div>
+            <br />
+            <hr />
+
+            <div class="panel-info">
+
+                @using (Html.BeginForm("MyDepartment", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                @Html.Label("Department", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("departmentID", new SelectList(departmentList, "DepartmentID", "GroupName"), htmlAttributes: new { @class = "form-control col-md-9" })
+                                    <input type="submit" value="Switch Department" class="btn btn-primary pull-right" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                }
+
+            </div>
+
+            <div class="panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Waiting for Approval</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body">
+                        @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+                        columns: list.Columns(
+                        list.Column("AssetAssignmentID", "Assign ID", canSort: true, style: "col-lg-2"),
+                        list.Column("AssetTag", "Asset Tag", canSort: true, style: "col-lg-2"),
+                        list.Column("", "Owner", format: (item) =>
+                            {
+                                var name = employeeProcess.GetEmployeeByID(item.EmployeeID);
+                                return Html.Raw("<p>" + name.LastName + " , " + name.FirstName + "</p>");
+                            }, canSort: false, style: "col-lg-2"),
+                        list.Column("StatusDescription", "Asset Status", canSort: false, style: "col-lg-2"),
+                        list.Column("AssignmentStatus", "Assignment Status", canSort: false, style: "col-lg-2"),
+                        list.Column(format: (item) => Html.ActionLink("Manage", "Unavailable", "Home", null, new { @class = "btn btn-primary" }), style: "column-action")
+
+                ))
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />

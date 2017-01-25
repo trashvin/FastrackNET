@@ -1,0 +1,132 @@
+﻿@model FASTWeb.Models.FixAssetViewModel
+
+@{
+    ViewBag.Title = "NewAsset";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Asset</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.FixAssetID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.SerialNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SerialNumber, new { @class="form-control" })
+                @Html.ValidationMessageFor(model => model.SerialNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssetTag, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.AssetTag, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AssetTag)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Model, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Model)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Brand, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Brand)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AcquisitionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.AcquisitionDate, new { @class = "form-control", @id = "adate" })
+                @Html.ValidationMessageFor(model => model.AcquisitionDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExpiryDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ExpiryDate, new { @class = "form-control", @id = "edate" })
+                @Html.ValidationMessageFor(model => model.ExpiryDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Issuer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IssuerID, new SelectList(ViewBag.Issuer, "IssuerID", "IssuerName"),@Model.Issuer ,new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Issuer)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LocationID, new SelectList(ViewBag.Location, "LocationID", "LocationName"),@Model.Location,new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssetType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AssetTypeID, new SelectList(ViewBag.AssetType, "AssetTypeID", "TypeDescription"), @Model.AssetType, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AssetTypeID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssetStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AssetStatusID, new SelectList(ViewBag.AssetStatus, "AssetStatusID", "StatusDescription"),@Model.AssetStatus,new { @class = "form-control", @readonly=true, @disabled=true })
+                @Html.ValidationMessageFor(model => model.AssetStatusID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssetClass, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AssetClassID, new SelectList(ViewBag.AssetClass, "AssetClassID", "ClassDescription","1" ),new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AssetClassID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Remarks, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Remarks)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-3 pull-right">
+                <input type="submit" value="SaveChanges" class="btn btn-primary" />
+                @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#adate").datepicker({ dateFormat: 'mm/dd/yy' });
+        $("#edate").datepicker({ dateFormat: 'mm/dd/yy' });
+    });
+</script>
+

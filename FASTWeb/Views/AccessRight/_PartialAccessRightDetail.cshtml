@@ -1,0 +1,73 @@
+﻿@using Common;
+@model IEnumerable <Common.vwAccessRight>
+@{
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+
+    int employeeID = (int) ViewBag.EmployeeID;
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">Access Rights</h1>
+    </div>
+    <div class="panel-body" id="list">
+        @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("AccessMode", "Access Mode", canSort: true, style: "col-lg-2"),
+                 list.Column("Description", "Description", canSort: true, style: "col-lg-3"),
+                 list.Column("GroupName", "Assigned Department", canSort: true, style: "col-lg-5"),
+                 list.Column(format: (item) => Html.ActionLink("Remove", "DeleteRight", new { accessID = item.AccessID , empID = item.EmployeeID}), style: "column-action")
+                ))
+    </div>
+    <div class="panel-body" id="newrightentry" style="display:none">
+        <div class="panel panel-success" >
+                <div class="panel-heading">
+                    <h1 class="panel-title col-md-4">Add New Right</h1>
+                    <a class="text-primary pull-right" href="#" onclick="hideAddAccessForm()">
+                        <b>X</b>
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
+                
+            <div class="panel-body">
+                @using (Html.BeginForm("AddAccessRight", "AccessRight", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group col-sm-12">
+                                <div class="col-sm-12">
+                                    <input value=@employeeID  style="width:120px" class="form-control col-md-1 hidden" type="text" id="employeeID" name="employeeID" />
+                                    <label class="col-md-1 control-label left" style="width:120px" for="startDate">Access Level</label>
+                                    @Html.DropDownList("accessID", new SelectList(ViewBag.AccessLevel, "AccessLevelID", "AccessMode"), "Access Level", new { @class = "form-control col-sm-2" })
+                                    <label class="col-md-1 control-label" style="width:125px" for="employeeID">Department</label>
+                                    @Html.DropDownList("departmentID", new SelectList(ViewBag.Department, "DepartmentID", "GroupName"), "Select Department", new { @class = "form-control col-sm-2" })
+                                    <button type="submit" name="save" class="btn btn-default pull-right">Save</button>
+                                 </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" id="addButton">
+        <a class="btn btn-primary dropdown-toggle pull-right" aria-expanded="true" href="#" data-toggle="dropdown" onclick="showAddAccessForm()">
+            Add Rights
+        </a>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+    function showAddAccessForm() {
+        $("#newrightentry").show();
+        $("#addButton").hide();
+    }
+    function hideAddAccessForm() {
+        $("#newrightentry").hide();
+        $("#addButton").show();
+    }
+  
+</script>
+

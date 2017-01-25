@@ -1,0 +1,112 @@
+﻿@model IEnumerable<FASTService.vwFixAssetList>
+@{
+    ViewBag.Title = "Fix Asset Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    SelectList newIssuerList = new SelectList(ViewBag.Issuers, "IssuerID", "IssuerName");
+    List<SelectListItem> Issuers = newIssuerList.ToList();
+    Issuers.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+
+    SelectList newLocList = new SelectList(ViewBag.Locations, "LocationID", "LocationName");
+    List<SelectListItem> locations = newLocList.ToList();
+    locations.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+
+    SelectList newAssetClassList = new SelectList(ViewBag.AssetClass, "AssetClassID", "ClassDescription");
+    List<SelectListItem> assetClasses = newAssetClassList.ToList();
+    assetClasses.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+
+    SelectList newAssetTypeList = new SelectList(ViewBag.AssetType, "AssetTypeID", "TypeDescription");
+    List<SelectListItem> assetTypes = newAssetTypeList.ToList();
+    assetTypes.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+
+    SelectList newAssetStatusList = new SelectList(ViewBag.AssetStatus, "AssetStatusID", "StatusDescription");
+    List<SelectListItem> assetStatuses = newAssetStatusList.ToList();
+    assetStatuses.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+}
+
+<br />
+<div class="row">
+    <div class="col-lg-6">
+        @using (Html.BeginForm("FixAssetReport", "Report", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <legend>Fix Assets</legend>
+            </fieldset>
+            
+            <div class="form-group">
+                <label for="assetClasses" class="col-lg-2 control-label">Asset Class</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("AssetClassID", assetClasses, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="assetTypes" class="col-lg-2 control-label">Asset Type</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("AssetTypeID", assetTypes, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="assetStatuses" class="col-lg-2 control-label">Asset Status</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("AssetStatusID", assetStatuses, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <button class="btn btn-danger" type="submit">Export to Excel</button>
+            
+            
+        }
+    </div>
+</div>
+<br />
+
+@*<h2>Fix Asset Report</h2>
+
+    <div class="row">
+        @if (Model != null || Model.Count() > 0)
+        {
+            <div class="col-lg-12">
+                @{
+            var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
+            @MvcHtmlString.Create(
+                                grid.GetHtml(
+                                         tableStyle: "table table-striped table-hover",
+                                    mode: WebGridPagerModes.All,
+                                    firstText: "First",
+                                    previousText: "Prev",
+                                    nextText: "Next",
+                                    lastText: "Last",
+                                    htmlAttributes: new
+                                    {
+                                        id = "grid"
+                                    },
+                                    columns: grid.Columns(
+                                          grid.Column("FixAssetID", "Fix Asset ID"),
+                                          grid.Column("Model", "Model"),
+                                          grid.Column("SerialNumber", "Serial #"),
+                                          grid.Column("AssetTag", "Asset Tag"),
+                                          grid.Column("Brand", "Brand"),
+                                          grid.Column("Remarks", "Remarks"),
+                                               grid.Column("AcquisitionDate", "Acquisition Date"),
+                                               grid.Column("ExpiryDate", "Expiry Date"),
+                                               grid.Column("IssuerName", "Issuer Name"),
+                                               grid.Column("IssuerType", "Issuer Type"),
+                                               grid.Column("LocationName", "Location"),
+                                               grid.Column("Country", "Country"),
+                                               grid.Column("TypeDescription", "Type"),
+                                               grid.Column("ClassDescription", "Class"),
+                                               grid.Column("StatusDescription", "Asset Status")
+
+                                     )
+                                ).ToHtmlString()
+                            )
+                }
+
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh snap!</strong> No Records were found
+            </div>
+        }
+    </div>*@

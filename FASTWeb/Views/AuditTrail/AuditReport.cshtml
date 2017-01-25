@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Common.AuditTrail>
+@{
+    Layout = null;
+    //var searchKey = TempData["SearchKey"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <title>Audit Report</title>
+</head>
+<body>
+    <div class="container">
+        <h1>FASTrack Online Reports</h1>
+        <h3>Audit Report</h3>
+        <table class="table table-bordered table-striped">
+            <thead >
+                <tr>
+                    <th style="text-align:center;width:100px">Date</th>
+                    <th style="text-align: center;width:90px">Employee ID</th>
+                    <th style="text-align: center;width:90px">Assignment ID</th>
+                    <th style="text-align: center;width:60px">Asset Tag</th>
+                    <th style="text-align: center">Action</th>
+                    <th style="text-align: center">Remarks</th>
+                </tr>
+            </thead>
+            @if (Model != null && Model.Count() > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="text-align: center" >@Html.DisplayFor(modelItem => item.Date)</td>
+                        <td style="text-align: center">@Html.DisplayFor(modelItem => item.EmployeeID)</td>
+                        <td style="text-align: center" >@Html.DisplayFor(modelItem => item.AssignmentID)</td>
+                        <td style="text-align: center">@Html.DisplayFor(modelItem => item.AssetTag)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Action)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdditionalInformation)</td>
+                    </tr>
+                }
+            }
+
+        </table>
+    </div>
+</body>
+</html>

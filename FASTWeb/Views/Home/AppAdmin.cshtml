@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Application Administrator";
+
+}
+<br />
+<div class="container-fluid">
+    <div>
+        <div class="panel-info col-lg-3">
+            <div class="panel-heading">
+                <span class="panel-title" />
+            </div>
+            <div class="panel-body" style="background-color:aliceblue">
+                <center>
+                    <img src="~/Images/appadmin.jpg" width="200" height="200" class="img-rounded" />
+                </center>
+            </div>
+            <div class="panel-body warning" style="background-color:whitesmoke">
+                <div class="list-group list-group-item-info">
+                    <a class="list-group-item" href="@Url.Action("Index", "AuditTrail")"><span class="glyphicon glyphicon-th-list text-danger" aria-hidden="true"></span> Audit Trail</a>
+                </div>
+            </div>
+            <div class="panel-body" style="background-color:snow;height:50px">
+            </div>
+
+
+        </div>
+        <div class="panel-info col-lg-9">
+            <div class="panel-info">
+                <div class="panel-body" style="height: 200px;background-image:url('../Images/fujitsu_infinity_1.png');background-repeat:no-repeat;background-position:right">
+                    <h2>Application Administrators</h2>
+                    @*<blockquote>
+                            <h4>Number of employees : 12</h4>
+                            <h4>Number of assets assigned :</h4>
+                        </blockquote>*@
+                </div>
+            </div>
+            <br />
+            <hr />
+            <div class="panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Data Maintenance</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body col-lg-6">
+                        <div class="list-group list-group-item-info">
+                            <a class="list-group-item" href="@Url.Action("Index","AccessRight")"><span class="glyphicon glyphicon-cog text-success" aria-hidden="true"></span>Access Rights</a>
+                            <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>Department</a>
+                            <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>Locations</a>
+                            <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>Asset Class</a>
+                        </div>
+                    </div>
+                    <div class="panel-body col-lg-6">
+                        <div class="list-group list-group-item-info">
+                            <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>Asset Types</a>
+                            <a class="list-group-item" href="@Url.Action("Index","Configuration")"><span class="glyphicon glyphicon-cog text-success " aria-hidden="true"></span>Configurations</a>
+                            <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>News</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

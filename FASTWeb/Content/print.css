@@ -1,0 +1,15 @@
+﻿body {
+}
+
+
+th,thead {
+    background-color : gainsboro !important;
+}
+
+.no-print, .no-print *
+{
+        display: none !important;
+}
+
+
+

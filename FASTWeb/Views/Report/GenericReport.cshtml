@@ -1,0 +1,61 @@
+﻿@model FASTWeb.Models.ModularReport
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="~/Content/print.css" media="print"> 
+    <title>@Model.ReportTitle</title>
+</head>
+<body>
+    <div class="container">
+        <div class="no-print pull-right">
+            <br />
+            <button onclick="myFunction()">Print this page</button>
+            <script>
+                function myFunction() {
+                    window.print();
+                }
+            </script>
+        </div>
+        <h3>FASTrack Online Reports</h3>
+        <h4>@Model.ReportTitle</h4>
+        @if ( ! String.IsNullOrEmpty(Model.ReportDescription))
+        {
+            <h5>@Model.ReportDescription</h5>
+        }
+        <hr />
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr style="background-color:gray">
+                    @foreach(FASTWeb.Models.ReportColumn column in Model.Columns){
+                        column.Style = String.Format("text-align:{0};width:{1}px",column.Style,column.Width);
+                        <th style=@column.Style>@column.Content</th>
+                    }
+                </tr>
+            </thead>
+           @if (Model.Data != null && Model.Data.Count() > 0)
+            {
+                foreach (FASTWeb.Models.ReportData data in Model.Data)
+                {
+                    <tr>
+
+                        @foreach(FASTWeb.Models.ReportColumn column in data.DataList)
+                        {
+                            column.Style = String.Format("text-align:{0};width:{1}px",column.Style,column.Width);
+                            <td style=@column.Style>@column.Content</td>
+                        }
+                  </tr>
+                }
+            }
+
+        </table>
+        
+    </div>
+</body>
+</html>

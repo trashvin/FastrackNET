@@ -1,0 +1,81 @@
+﻿@model FASTWeb.Models.ConfigurationViewModel
+@{
+    ViewBag.Title = "Edit Configurations";
+}
+
+<br />
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <fieldset>
+                @Html.ValidationSummary(true)
+                <legend>Edit Configuration</legend>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfigID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ConfigID, new { disabled = false, @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ConfigID)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfigName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ConfigName, new { @readonly = true, @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.Value, new { @class = "form-control", @style = "width:500px;height:200px" })
+                        @Html.ValidationMessageFor(model => model.Value)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsEncrypted, htmlAttributes: new { @class = "control-label col-md-3"})
+                    <div class="col-md-9">
+                        @Html.CheckBoxFor(model => model.IsEncrypted, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IsEncrypted)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CanExpire, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.CheckBoxFor(model => model.CanExpire, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CanExpire)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ExpiryDays, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ExpiryDays, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ExpiryDays)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ModuleID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ModuleID, new { disabled = false, @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ModuleID)
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.LastModified)
+                @Html.HiddenFor(model => model.OriginalValue)
+                @Html.HiddenFor(model => model.ModuleID)
+
+                <div class="form-group">
+                    <div class="col-md-3 pull-right">
+                        <input type="submit" value="Save changes" class="btn btn-primary" />
+                        @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    }
+</div>

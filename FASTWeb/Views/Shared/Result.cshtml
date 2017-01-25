@@ -1,0 +1,48 @@
+﻿@using Common;
+@{
+    ViewBag.Title = "Result";
+    var result = TempData[FASTConstant.TMPDATA_RESULT];
+    var source = TempData[FASTConstant.TMPDATA_SOURCE];
+    var extraMessage = TempData[FASTConstant.TMPDATA_EXTRAMESSAGE];
+    var actionName = TempData[FASTConstant.TMPDATA_ACTION];
+    var controllerName = TempData[FASTConstant.TMPDATA_CONTROLLER];
+}
+
+<div class="container-fluid">
+    <br />
+    <div class="jumbotron fujitsu">
+        <div style="height:300px">
+            <h2 class="text-info">@result</h2>
+            @if (String.Compare(result.ToString().ToUpper(), FASTConstant.SUCCESSFUL) == 0)
+            {
+                <p>@source was successful.</p>
+
+                if (extraMessage.ToString().Length > 0)
+                {
+                    <p>@extraMessage.</p>
+                }
+            }
+            else
+            {
+                <p>@source was not successful. Please go back, check your inputs and try again.</p>
+                if (extraMessage.ToString().Length > 0)
+                {
+                    <p>@extraMessage</p>
+                }
+            }
+        </div>
+
+        @if (actionName != null && controllerName != null)
+        {
+            //@Html.ActionLink("O", null, null, null, new { href = Request.UrlReferrer, @class="btn btn-default" })
+            
+            @Html.ActionLink("Ok", actionName.ToString(), controllerName.ToString(),"", new { @class="btn btn-primary"});
+        }
+        else
+        {
+            
+            @Html.ActionLink("Ok", null, null, new { @class="btn btn-primary"}, new { href = Request.UrlReferrer })
+        }
+    </div>
+
+</div>

@@ -1,0 +1,81 @@
+﻿@model FASTWeb.Models.LoginCredentialModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="row" onload="hideProgressBar()">
+    <div class="col-md-12" >
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Authenticate", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div style="padding-left:0px">
+                    <br/>
+                    <center><img src="~/images/fastrack_login.png" width="250" /></center>
+                </div>
+                
+                <hr />
+
+                if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+                {
+                    <div class="alert alert-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        @Html.ValidationSummary(true, "Errors: ")
+                    </div>
+                }
+
+                <div class="form-group">
+                    <center>
+                        <div class="col-mod-12">
+                            @Html.LabelFor(m => m.Username, new { @class = "control-label", @style = "font-size:14px;color:#e60000" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @style = "font-size:25px;text-align:center" })
+                            @Html.ValidationMessageFor(m => m.Username)
+                        </div>
+                    </center>
+                </div>
+                <div class="form-group">
+                    <center>
+                        <div class="col-mid-12">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label", @style = "font-size:14px;color:#e60000" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @style = "font-size:25px;text-align:center" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </center>
+                </div>
+                <div class="form-group">
+                    <center>
+                        <div class="col-md-12">
+                            <input type="submit" value="Log in" class="btn btn-primary" onclick="showProgressBar()"  />
+                        </div>
+                    </center>
+                </div>
+                <div class="row col-mid-12">
+                    <center>
+                        <div>
+                            <br/>
+                            <table>
+                                <tr>
+                                    <td style="padding-right:105px;">@Html.ActionLink("Register", "Register", "", new { @style = "font-size:15px" })</td>
+                                    <td>@Html.ActionLink("Forgot Password", "ResetPassword", "", new {@style = "font-size:15px" })</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </center>
+                </div>
+         
+            }
+        </section>
+        <br/>
+        
+    </div>  
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

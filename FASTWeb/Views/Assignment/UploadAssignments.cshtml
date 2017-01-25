@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Asset Assignment Bulk Upload";
+}
+
+<div class="container-fluid">
+    <br />
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Asset Assignment Bulk Upload Utility</h3>
+        </div>
+        <div>
+            <div class="panel-info col-lg-8">
+                <h2>Instructions</h2>
+                <h4>
+                    The asset assignment upload utility allows the custodian to add new assignments by batch.
+                    The new assignments will be stored in a pre-formatted excel file and uploaded in Fastrack. Once uploaded,
+                    processing will start in the background and the uploader will be notified via email regarding the result.
+                </h4>
+                <br />
+                <h4>Step by Step Guide</h4>
+                <ol>
+                    <li>Download the pre-formatted excel template on the provided link on the right.</li>
+                    <li>Fill-up the excel scheet with the new asset assignment information.</li>
+                    <li>Upload the file using the upload utility on the right side of the page.</li>
+                    <li>Result will be emailed to the uploader.</li>
+                </ol>
+                <br />
+                <br />
+                <a class="text-primary" href="@Url.Action("Unavailable","Home")">
+                    <span class="glyphicon glyphicon-bookmark"></span>View your bulk upload history.
+                </a>
+
+
+            </div>
+            <div class="col-lg-4">
+                <h2>Upload / Download</h2>
+                <div class="panel">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Upload Now!</h2>
+                        </div>
+                        <div class="panel-body">
+                            @using (Html.BeginForm("UploadFile", "FixAsset", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <label class="btn btn-default">
+                                    <input type="file" name="FileUpload1" />
+                                </label>
+                                <br />
+                                <br />
+                                <input type="submit" class="btn btn-primary" name="Submit" id="Submit" value="Upload" onclick="showProgressBar()" />
+                            }
+                        </div>
+                    </div>
+
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Template Download</h2>
+                        </div>
+                        <div class="panel-body">
+                            <a class="text-primary" href="@Url.Action("GetTemplate","Assignment")">
+                                <span class="glyphicon glyphicon-download"></span>Download Template
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Common.Configuration>
+@{
+    ViewBag.Title = "Configurations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+}
+
+<br />
+<div id="listContainer">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Configurations</h3>
+        </div>
+        <div class="panel-body" style="background-color:gainsboro">
+        </div>
+        <div class="panel-body">
+            @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("ConfigID", "Configuration ID", canSort: true, style: "col-lg-2"),
+                 list.Column("Name", "Configuration Name", canSort: true, style: "col-lg-3"),
+                 list.Column("Value", "Value", canSort: true, style: "col-lg-6"),
+                 list.Column(format: (item) => Html.ActionLink("Edit", "EditConfigurations", new { configID = item.ConfigID }), style: "column-action")
+                ))
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FASTrack Online </title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/datepicker.css")
+    @Styles.Render("~/Content/themes/base/images")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    <link rel="stylesheet" href="~/Content/bootstrap-datepicker.css">
+
+</head>
+<body>
+    @if ( Request.IsAuthenticated)
+    {
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-left"><img src="~/Images/fastrack_brand.png" width="220"></a>
+                </div> 
+                <div class="navbar-header pull-right">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div class="container body-content">
+        @RenderBody()
+     </div>
+    @if (Request.IsAuthenticated)
+    {
+        <div class="panel-footer">
+        <footer style="align-content:center;align-self:center;align-items:center">
+            
+                <center>
+                    | @Html.ActionLink("Home", "Index", "Home")
+                    | @Html.ActionLink("Downloads", "DownloadPage", "Home")
+                    | @Html.ActionLink("About", "About", "Home") 
+                    | @Html.ActionLink("Contact", "Contact", "Home") |
+                </center>
+            
+            <center><p>&copy; @DateTime.Now.Year - WeServ Retail Department</p></center>
+            <center><p>Fastrack Online version @typeof(FASTWeb.MvcApplication).Assembly.GetName().Version (ALPHA)</p></center>
+        </footer>
+    </div>
+    }
+    else
+    {
+        <div class="navbar navbar-fixed-bottom">
+            <footer style="align-content:center;align-self:center;align-items:center">
+                <center><p>&copy; @DateTime.Now.Year - WeServ Retail Department</p></center>
+                <center><p>Fastrack Online version @typeof(FASTWeb.MvcApplication).Assembly.GetName().Version (ALPHA)</p></center>
+            </footer>
+        </div>
+    }
+
+
+    <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; z-index: 30001;display:none">
+        <p style="position: absolute; top: 80%; left: 45%; color: White;">
+            <img src="~/images/loading.gif">
+        </p>
+    </div>
+
+
+
+    <script type="text/javascript" language="javascript">
+        function showProgressBar() {
+            $("#divLoading").show();
+        }
+        function hideProgressBar() {
+            $("#divLoading").hide();
+        }
+        $('form').bind('invalid-form.validate', function () {
+            hideProgressBar();
+        });
+    </script>
+
+
+
+
+@*Scripts.Render("~/bundles/jquery")*@
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+
+</body>
+</html>

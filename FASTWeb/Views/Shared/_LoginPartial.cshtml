@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNet.Identity
+@using Provider.ExtensionMethod
+@using FASTProcess;
+@using Common
+@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+    
+    int employeeID = User.Identity.Name.ToInteger();
+    
+    FASTProcess.AccessRightsProcess accessProcess = 
+        new  FASTProcess.AccessRightsProcess();
+
+    FASTProcess.EmployeeProcess employeeProcess =
+        new FASTProcess.EmployeeProcess();
+
+    string firstName = employeeProcess.GetEmployeeByID(employeeID).FirstName;
+    
+    int accescount = 0;
+    
+    
+    <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("My Assets", "MyAssets", "Home") </li>
+
+            @if ( accessProcess.HasAccess(employeeID, FASTConstant.ACCESS_LVL_MANAGER ))
+            { 
+                <li>@Html.ActionLink("My Department", "MyDepartment", "Home", null, null) </li>
+                accescount++;
+            }
+            
+            @if ( accessProcess.HasAccess(employeeID,FASTConstant.ACCESS_LVL_MIS) )
+            {
+                <li>@Html.ActionLink("MIS", "MIS", "Home") </li>
+                accescount++;
+            }
+            
+            @if ( accessProcess.HasAccess(employeeID,FASTConstant.ACCESS_LVL_ADMIN) )
+            {   
+                <li>@Html.ActionLink("Custodians", "Custodian", "Home") </li>
+                accescount++;
+            }
+            
+            @if ( accessProcess.HasAccess(employeeID,FASTConstant.ACCESS_LVL_APPADMIN) )
+            {
+                <li>@Html.ActionLink("App Admin", "AppAdmin", "Home") </li>
+                accescount++;
+            }
+    
+            <li class="dropdown">
+                <a class="dropdown-toggle" role="button" aria-expanded="true" href="#" data-toggle="dropdown">Welcome, @firstName !<b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>@Html.ActionLink("Edit Personal Info", "EditEmployee", "Employee", new { mod=employeeID }, null) </li>
+                    <li>@Html.ActionLink("Change Password","ChangePassword","Authenticate")</li>
+                    <li class="divider"></li>
+                    <li>@Html.ActionLink("Log Out", "LogOut", "Authenticate") </li>
+                </ul>
+            </li>
+            
+    </ul>
+    
+    
+
+}
+

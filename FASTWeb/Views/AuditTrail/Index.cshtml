@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Common.AuditTrail>
+@{
+    ViewBag.Title = "FASTrack Audit Trails";
+   
+    var trails = new WebGrid(Model, canPage: true, rowsPerPage: 25, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "trailsContainer");
+    trails.Pager(WebGridPagerModes.NextPrevious);
+
+    var startDate = TempData["StartDate"];
+    var employeeID = TempData["EmployeeID"];
+    var assetTag = TempData["AssetTag"];
+    var assignmentID = TempData["AssignmentID"];
+}
+<br/>
+<div class="container-fluid">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Audit Trails</h1>
+        </div>
+        <div id="searchContainer" class="panel-body" style="background-color:gainsboro;">
+                @using (Html.BeginForm("Search", "AuditTrail", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <div class="form-group col-md-12">
+                                <div class="col-md-12">
+                                    <label class="col-md-1 control-label left" style="width:50px" for="startDate">Date</label>
+                                    <input value="@startDate" style="width:120px" class="form-control col-md-1" type="text" id="startDate" name="startDate" placeholder="Start Date" />
+                                    <label class="col-md-1 control-label" style="width:125px" for="employeeID">Employee ID</label>
+                                    <input value="@employeeID" class="form-control col-md-1" style="width:105px" type="text" id="employeeID" name="employeeID" placeholder="Employee ID" maxlength="10" />
+                                    <label class="col-md-1 control-label" style="width:100px" for="assetTag">Asset Tag</label>
+                                    <input value="@assetTag" style="width:100px" class="form-control col-md-1" type="text" id="assetTag" name="assetTag" placeholder="Asset Tag" maxlength="50" />  
+                                    <label class="col-md-1 control-label" style="width:150px" for="assignmentID">Assignment ID</label>
+                                    <input value="@assignmentID" class="form-control col-md-1" type="text" style="width:125px" id="ssignmentID" name="assignmentID" placeholder="Assignment ID" maxlength="6" />
+                                </div>
+                                <div class="col-md-12 clearfix"  ><br/></div>
+                                <div class="col-md-12">
+                                    <button type="submit" name="search" class="btn btn-primary pull-right">Search</button>
+                                    <button type="submit" name="print" class="btn btn-default pull-right" formtarget="_blank">Print Result</button>
+                                </div>
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                }
+            </div>
+       
+        <div id="trailsContainer" class="panel">
+                <div class="panel-body">
+                    @trails.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: trails.Columns(
+        trails.Column("Date", "Date", canSort: false, style: "col-md-2"),
+                 trails.Column("EmployeeID", "Employee ID", canSort: false, style: "col-md-2"),
+                 trails.Column("Action", "Action", canSort: false, style: "col-md-2"),
+                 trails.Column("AssignmentID", "Assignment ID", canSort: false, style: "col-md-1"),
+                 trails.Column("AssetTag", "Asset Tag", canSort: false, style: "col-md-1"),
+                 trails.Column("AdditionalInformation", "Remarks", canSort: false, style:"col-md-5")
+                ))
+                </div>
+            </div>
+        
+    </div>
+    
+            
+    
+
+          
+</div>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#startDate").datepicker({ dateFormat: 'mm/dd/yy' });
+        });
+</script>
+

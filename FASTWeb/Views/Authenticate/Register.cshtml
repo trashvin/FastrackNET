@@ -1,0 +1,58 @@
+﻿@model FASTWeb.Models.RegistrationModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="registrationForm">
+            @using (Html.BeginForm("Register", "Authenticate", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div style="padding-left:0px">
+                    <br/>
+                    <center><img src="~/images/fastrack_login.png" width="250" /></center>
+                </div>
+                <hr />
+                
+             
+                
+                <div class="form-group col-mid-12">
+                    <center>
+                        @Html.LabelFor(m => m.EmployeeID, new { @class = "control-label", @style = "font-size:14px;color:#e60000"  })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.EmployeeID, new { @class = "form-control", @style = "font-size:25px;text-align:center" })
+                            @Html.ValidationMessageFor(m => m.EmployeeID)
+                        </div>
+                    </center>
+                </div>
+                <div class="form-group">
+                    <center>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary" value=" Register " onclick="showProgressBar()"/>
+                        </div>
+                    </center>
+                </div>
+                <div class="form-group col-mid-12">
+                    <center>
+                        <div class="panel-info col-mid-6">
+                            <p>
+                                .
+                            </p>
+                        </div>
+                    </center>
+                </div>
+            }
+        </section>
+    </div>
+    <br />
+    
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Reports";
+} 
+<br/>
+
+<div class="container-fluid">
+   
+    <div>
+        <div class="panel-info col-lg-3">
+            <div class="panel-heading">
+                <span class="panel-title" />
+            </div>
+            <div class="panel-body" style="background-color:aliceblue">
+                <center>
+                    <img src="~/Images/reports.jpg" width="200" height="200" class="img-rounded" />
+                </center>
+            </div>
+            <div class="panel-body" style="background-color:whitesmoke;height:50px">
+             
+            </div>
+            <div class="panel-body" style="background-color:snow;height:50px">
+            </div>
+        </div>
+        <div class="panel-info col-lg-9">
+            <div class="panel-info">
+                <div class="panel-body" style="height: 200px;background-image:url('../Images/fujitsu_infinity_1.png');background-repeat:no-repeat;background-position:right">
+                    <h3>FASTrack Reports</h3>
+                    @*<blockquote>
+                            <h4>Number of employees : 12</h4>
+                            <h4>Number of assets assigned :</h4>
+                        </blockquote>*@
+                </div>
+            </div>
+            <br />
+            <hr />
+            <div class="panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">List of Available Reports</h3>
+                </div>
+                <br />
+                <div class="col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Employee Reports</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group list-group-item-info">
+                                <a class="list-group-item" href="@Url.Action("EmployeeReport","Report")"><span class="glyphicon glyphicon-list-alt text-success" aria-hidden="true"></span>List of Employees</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt " aria-hidden="true"></span>Employee Profile</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Employees per Department</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Assignment Reports</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group list-group-item-info">
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assignments Per Department</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assignment Per Employee</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Assignment History</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assignments Waiting for Acceptance</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assignments Waiting for Approval</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assignments at MIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Asset Reports</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group list-group-item-info">
+                                <a class="list-group-item" href="@Url.Action("FixAssetReport","Report")"><span class="glyphicon glyphicon-list-alt text-success" aria-hidden="true"></span>List of Assets</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Unassigned Assets</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assets per Department</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assets Less Than 5 Years</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assets More Than 5 Years</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assets for Repair</a>
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>List of Assets for Decommissioning</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Statistics</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group list-group-item-info">
+                                <a class="list-group-item" href="@Url.Action("Unavailable","Home")"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Request and Approvals</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
