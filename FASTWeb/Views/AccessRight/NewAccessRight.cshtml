@@ -1,0 +1,81 @@
+﻿@using Common;
+@model Common.vwEmployeeList
+@{
+    ViewBag.Title = "New Access Right";
+
+    List<vwAccessRight> rights = ViewBag.Rights;
+}
+
+<br/>
+<div class="container-fluid">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">New Access Right</h1>
+        </div>
+        <div id="searchContainer" class="panel-body" style="background-color:gainsboro;">
+            @using (Html.BeginForm("SearchEmployeeRights", "AccessRight", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12">
+                                <label class="col-md-1 control-label" style="width:175px;text-align:left" for="employeeID">Search Employee ID</label>
+                                <input value="" class="form-control col-md-1" style="width:125px" type="text" id="employeeID" name="employeeID" placeholder="Employee ID" maxlength="10" />
+                                <button type="submit" name="search" class="btn btn-default">Search</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            }
+        </div>
+        <div class="panel-body">
+
+            @if( !String.IsNullOrEmpty(Model.LastName))
+            { 
+                <div class="col-lg-2" style="background-color:aliceblue;">
+                    <br /><br />
+                    <center>
+                        @{
+                            if (String.Compare(@Model.Gender, "Male") == 0)
+                            {
+                                <img src="../Images/default_avatar_male.jpg" width="125" height="125" class="img-circle" />
+                            }
+                            else
+                            {
+                                <img src="../Images/default_avatar_female.jpg" width="125" height="125" class="img-circle" />
+                            }
+                        }
+                        <hr />
+                    </center>
+                </div>
+                <div class="col-lg-7">
+                    <div class="panel-heading">
+                    </div>
+                    <h2>@Model.FirstName @Model.MiddleName @Model.LastName</h2>
+                    <blockquote class="col-lg-6">
+                        <h5>@Model.Description</h5>
+                        <h6>@Model.DepartmentName</h6>
+                        <h6>@Model.EmailAddress</h6>
+                        <h6>@Model.PhoneNumber</h6>
+
+                    </blockquote>
+                    <br />
+
+                </div>
+            }
+            else
+            {
+                <h3 class="center-block">No data available</h3>
+            }
+           
+        </div>
+
+        <div class="panel-body">
+            @Html.Partial("_PartialAccessRightDetail", rights)
+        </div>
+
+    </div>
+    
+    
+   
+</div>

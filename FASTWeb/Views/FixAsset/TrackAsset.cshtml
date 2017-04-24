@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Fix Asset Information";
+}
+
+
+
+<div class="container-fluid">
+    <h2>Fix Asset Information</h2>
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Fix Asset Details</h2>
+        </div>
+        <div class="panel-body">
+            <p>This will contain information regarding the Asset (e.g. Asset Tag, Serial Number, Model, Brand etc..)</p>
+        </div>
+    </div>
+    <div class="panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Current Assignment</h2>
+        </div>
+        <div class="panel-body">
+            <p>This will contain information on the current assignment (e.g. name of employee currently assigned to etc..)</p>
+        </div>
+    </div>
+    <div class="panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Assignment History</h2>
+        </div>
+        <div class="panel-body">
+            <p>This will contain list of assignments where this asset has been used. (e.g. previous owners etc...)</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class="btn btn-primary pull-right" href="@Url.Action("Unavailable","Home")" >Print</a>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Common.vwFixAssetList>
+@{
+    ViewBag.Title = "Fix Asset List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+}
+
+<br />
+<div id="listContainer">
+    <div class="panel">
+        <div class="btn-group pull-left">
+            <a href="@Url.Action("NewAsset","FixAsset")" class=" btn btn-primary">New Asset</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+   
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Fixed Asset List</h3>
+        </div>
+        <div class="panel-body" style="background-color:gainsboro">
+             @using (Html.BeginForm("Search", "FixAsset", FormMethod.Post, new { @class = "form-horizontal" }))
+             {
+                    <form>
+                         <fieldset>
+                             <div class="col-sm-12 input-group">
+                                 <label class="control-label col-sm-1">Search</label>
+                                 <input type="text" class="col-sm-2 form-control" placeholder="Asset Tag" id="assetTag" name="assetTag" >
+                                 <input type="text" class="col-sm-2 form-control" placeholder="Serial Number" id="serialNumber" name="serialNumber" >
+                                 @Html.DropDownList("statusID", new SelectList(ViewBag.AssetStatus, "AssetStatusID", "StatusDescription"),"Select Asset Status",new { @class = "form-control col-sm-2"})
+                                 <button type="submit" name="search" class="btn btn-primary pull-right">Search</button>
+                                 
+                                 </div>
+                        </fieldset>
+                    </form>    
+             }
+       </div>
+        <div class="panel-body">
+            @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("AssetTag", "Asset Tag", canSort: true, style: "col-lg-1"),
+                 list.Column("SerialNumber", "Serial Number", canSort: false, style: "col-lg-2"),
+                 list.Column("TypeDescription", "Type", canSort: true, style: "col-lg-2"),
+                 list.Column("Brand", "Brand", canSort: true, style: "col-lg-1"),
+                 list.Column("Model", "Model", canSort: false, style: "col-lg-1"),
+                 list.Column("AcquisitionDate", "Acquisition Date", canSort: false, style: "col-lg-2"),
+                 list.Column("ClassDescription", "Class", canSort: true, style: "col-lg-1"),
+                 list.Column("StatusDescription", "Status", canSort: true, style: "col-lg-1"),         
+                 list.Column(format: (item) => Html.ActionLink("Edit", "EditAsset", new { tag = item.AssetTag }), style: "column-action")
+                ))
+        </div>
+    </div>
+    <div class="panel">
+        <div class="btn-group pull-right">
+            <a href="@Url.Action("ExportAssetSearchResult", "Report")" class="btn btn-default" target="_blank">Export Result to Excel</a>
+            <a href="@Url.Action("PrintAssetSearchResult", "Report")" class=" btn btn-primary" target="_blank">Print Search Result</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div>
+    </div>
+</div>
+

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Common.vwEmployeeList>
+
+@{
+    ViewBag.Title = "Employee List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+
+    string deptName = String.Empty;
+
+    if (ViewBag.Department != null) 
+    {
+        deptName = " - " + ViewBag.Department;
+    }
+    
+}
+
+<br />
+<div id="listContainer">
+    <div class="panel">
+        <div class="btn-group pull-left">
+            <a href="@Url.Action("NewEmployee","Employee")" class=" btn btn-primary">New Employee</a>
+            <a href="#" class="btn btn-default">Upload New Employees</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Employee List @deptName</h3>
+        </div>
+        <div class="panel-body" style="background-color:gainsboro">
+            @using (Html.BeginForm("Index", "Employee", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <form>
+                    <fieldset>
+                        <div class="col-sm-12 input-group">
+                            <label class="control-label col-sm-1">Search</label>
+                            <input type="text" class="col-sm-2 form-control" placeholder="First Name" id="firstName" name="firstName">
+                            <input type="text" class="col-sm-2 form-control" placeholder="Last Name" id="lastName" name="lastName">
+                            <button type="submit" name="search" class="btn btn-primary pull-right">Search</button>
+                        </div>
+                    </fieldset>
+                </form>
+            }
+        </div>
+        <div class="panel-body">
+            @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("EmployeeID", "Employee ID", canSort: true, style: "col-lg-2"),
+                 list.Column("LastName","Full Name", format: (item) => item.LastName + " , " + item.FirstName + " " +item.MiddleName, canSort: true, style: "col-lg-3"),
+                 list.Column("Gender", "Gender", canSort: false, style: "col-lg-1"),
+                 list.Column("EmailAddress", "Email", canSort: false, style: "col-lg-2"),
+                 list.Column("Description", "Position", canSort: false, style: "col-lg-2"),
+                 list.Column("Status", "Active", canSort: false, format: (item) =>
+                                      {
+                                            if ( item.Status == 1)
+                                            {
+                                                return Html.Raw("<img src='../Images/check_ok.png' height='20px' width='20px'/>");
+                                            }
+                                            else
+                                            {
+                                                return Html.Raw("<img src='../Images/check_disabled.png' height='20px' width='20px'/>");
+                                            }
+                                      }),
+                 list.Column(format: (item) => Html.ActionLink("Edit","EditEmployee",new { mod = item.EmployeeID}), style: "column-action")
+                ))
+        </div>
+    </div>
+    <div class="panel">
+        <div class="btn-group pull-right">
+            <a href="@Url.Action("ExportEmployeeSearchResult", "Report")" class="btn btn-default" target="_blank">Export Result to Excel</a>
+            <a href="@Url.Action("PrintEmployeeSearchResult", "Report")" class=" btn btn-primary" target="_blank">Print Search Result</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div></div>
+</div>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<FASTService.vwEmployeeList>
+@{
+    ViewBag.Title = "Employee Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    SelectList newDeptList = new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName");
+    List<SelectListItem> department = newDeptList.ToList();
+    department.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+
+    SelectList newPosList = new SelectList(ViewBag.Positions, "PositionID", "Description");
+    List<SelectListItem> position = newPosList.ToList();
+    position.Insert(0, new SelectListItem { Text = "All", Value = "0" });
+   
+}
+
+<br />
+<div class="row">
+    <div class="col-lg-6">
+        @using (Html.BeginForm("EmployeeReport", "Report", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <fieldset>
+                <legend>Employees</legend>
+
+            </fieldset>
+            <div class="form-group">
+                <label for="department" class="col-lg-2 control-label">Department</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("DepartmentID", department, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="position" class="col-lg-2 control-label">Position</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("PositionID", position, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <button class="btn btn-danger" type="submit">Export to Excel</button>
+        }
+        @*@Html.ActionLink("Export to PDF", "GetPDF", "Report");*@
+    </div>
+</div>
+<br />
+<div class="row">
+    @if (Model != null || Model.Count() > 0)
+    {
+        <div class="col-lg-12">
+            @{
+        var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
+        @MvcHtmlString.Create(
+                            grid.GetHtml(
+                                     tableStyle: "table table-striped table-hover",
+                                mode: WebGridPagerModes.All,
+                                firstText: "First",
+                                previousText: "Prev",
+                                nextText: "Next",
+                                lastText: "Last",
+                                htmlAttributes: new
+                                {
+                                    id = "grid"
+                                },
+                                columns: grid.Columns(
+                                 grid.Column("EmployeeID", "Employee ID"),
+                                 grid.Column("FullName", "Full Name"),
+                                 grid.Column("Gender", "Gender"),
+                                 grid.Column("EmailAddress", "Email"),
+                                 grid.Column("PhoneNumber", "Phone #"),
+                                 grid.Column("DepartmentName", "Department"),
+                                 grid.Column("GroupName", "Group"),
+                                 grid.Column("Description", "Position")
+                                 )
+                            ).ToHtmlString()
+                        )
+            }
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Oh snap!</strong> No Records were found
+        </div>
+    }
+</div>

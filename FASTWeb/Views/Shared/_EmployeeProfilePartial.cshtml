@@ -1,0 +1,45 @@
+﻿@*@{
+    int empID = 0;
+    Int32.TryParse(User.Identity.Name, out empID);
+    FASTService.Process.EmployeeManagementProcess process = new FASTService.Process.EmployeeManagementProcess();
+    FASTService.Model.EmployeeModel employee = process.GetEmployeeProfile(empID);
+    
+}*@
+
+
+@*<div>
+    <div class="col-lg-12" style="padding-top:5px">
+        <div class="col-lg-2" style="background-color:aliceblue;">
+            <br /><br />
+            <center>
+
+                @{
+                    if (String.Compare(@employee.Gender, "Male") == 0)
+                    {
+                        <img src="../Images/default_avatar_male.jpg" width="125" height="125" class="img-circle" />
+                    }
+                    else
+                    {
+                        <img src="../Images/default_avatar_female.jpg" width="125" height="125" class="img-circle" />
+                    }
+                }
+                <br/>
+                <hr />
+            </center>
+        </div>
+        <div class="col-lg-10" style="background-image:url('../Images/fujitsu_infinity_1.png');background-repeat:no-repeat;background-position:right">
+            <div class="panel-heading">
+            </div>
+            <h3>@employee.FirstName @employee.MiddleName @employee.LastName</h3>
+            <blockquote class="col-lg-6">
+                <h5>@employee.Position</h5>
+                <h6>@employee.Department</h6>
+                <h6>@employee.EmailAddress</h6>
+                <h6>@employee.PhoneNumber</h6>
+
+            </blockquote>
+            <br />
+
+        </div>
+    </div>
+</div>*@

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Common.vwAccessRight>
+@{
+    ViewBag.Title = "Access Rights";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+}
+
+<br />
+<div id="listContainer">
+    <div class="panel">
+        <div class="btn-group pull-left">
+            <a href="@Url.Action("NewAccessRight","AccessRight")" class=" btn btn-primary">New Access Right</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Access Rights</h3>
+        </div>
+        <div class="panel-body" style="background-color:gainsboro">
+            @using (Html.BeginForm("Index", "AccessRight", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <form>
+                    <fieldset>
+                        <div class="col-sm-12 input-group">
+                            <label class="control-label col-sm-1">Search</label>
+                            <input type="text" class="col-sm-2 form-control" style="width:110px" placeholder="First Name" id="firstName" name="firstName">
+                            <input type="text" class="col-sm-2 form-control" style="width:110px" placeholder="Last Name" id="lastName" name="lastName">
+                            @Html.DropDownList("accessMode", new SelectList(ViewBag.AccessModes, "AccessLevelID", "AccessMode"), "Access Mode", new { @class = "form-control col-sm-2" })
+                            @Html.DropDownList("department", new SelectList(ViewBag.Departments, "DepartmentID", "GroupName"), "Department", new { @class = "form-control col-sm-2" })
+                            <button type="submit" name="search" class="btn btn-primary pull-right">Search</button>
+                        </div>
+                    </fieldset>
+                </form>
+            }
+        </div>
+        <div class="panel-body">
+            @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("EmployeeID", "Employee ID", canSort: true, style: "col-lg-1"),
+                 list.Column("FullName", "Full Name", canSort: true, style: "col-lg-3"),
+                 list.Column("AccessMode", "Access Mode", canSort: true, style: "col-lg-2"),
+                 list.Column("Description", "Description", canSort: true, style: "col-lg-3"),
+                 list.Column("GroupName", "Assigned Department", canSort: true, style: "col-lg-2"),
+                 list.Column(format: (item) => Html.ActionLink("Remove", "DeleteRightFromList", new { accessID = item.AccessID, empID = item.EmployeeID }), style: "column-action")
+                ))
+        </div>
+    </div>
+</div>

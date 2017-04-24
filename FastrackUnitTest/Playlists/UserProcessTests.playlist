@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="FastrackUnitTest.ProcessTests.UserProcessTest.TestRegistrationSuccess" /><Add Test="FastrackUnitTest.ProcessTests.UserProcessTest.TestChangePassword" /><Add Test="FastrackUnitTest.ProcessTests.UserProcessTest.TestRegistrationExist" /><Add Test="FastrackUnitTest.ProcessTests.UserProcessTest.TestRegistrationNotExist" /></Playlist>

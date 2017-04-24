@@ -1,0 +1,130 @@
+﻿@model FASTWeb.Models.EmployeeViewModel
+
+@{
+    ViewBag.Title = "New Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Employee</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.EmployeeID, new { @class = "form-control", @autofocus = "autofocus" })
+                @Html.ValidationMessageFor(model => model.EmployeeID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MiddleName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Gender, new SelectList(new[] 
+                {
+                    "Male",  "Female"
+                }), "Choose one", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Gender)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmailAddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.DepartmentID)
+                @Html.DropDownListFor(model => model.DepartmentID, new SelectList(ViewBag.Departments, "DepartmentID", "DepartmentName"), "Choose one", new { @class = "form-control" })
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.PositionID)
+                @Html.DropDownListFor(model => model.PositionID, new SelectList(ViewBag.Positions, "PositionID", "Description"), "Choose one", new { @class = "form-control" })
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CompanyName)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Status_booleanVal, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status_booleanVal)
+            </div>
+        </div>
+
+        <div class="form-group">
+          
+            <div class="col-md-3 pull-right">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer, @class = "btn btn-default" })
+            </div>
+        </div>
+        <div class="form-group" style="visibility:hidden">
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.EmployeeID, new { disabled = false, @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeID)
+            </div>
+        </div>
+
+    </div>
+}
+
+

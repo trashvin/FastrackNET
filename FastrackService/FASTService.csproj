@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28AB715E-DCE7-4C79-A9B1-A5DEC53EAF73}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FASTService</RootNamespace>
+    <AssemblyName>FastrackService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessLevel.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccessRight.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetAssignment.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetClass.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetStatu.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssetType.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignmentStatu.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditTrail.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BulkUpload.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Download.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FASTDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FASTDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FASTDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FASTDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FASTDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FixAsset.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Issuer.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Module.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReasonCode.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAccessRight.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetAssignment.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetAssignmentsForCustodian.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetAssignmentsForManager.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetAssignmentsForMI.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCustodiansList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepartmentList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwEmployee.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwEmployeeList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFixAsset.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFixAssetList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwManagersList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMISList.cs">
+      <DependentUpon>FASTDBModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="FASTDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FASTDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FASTDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FASTDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>FASTDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="FASTDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FASTDBModel.cs</LastGenOutput>
+      <DependentUpon>FASTDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="FASTDBModel.edmx.diagram">
+      <DependentUpon>FASTDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

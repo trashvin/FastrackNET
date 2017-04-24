@@ -1,0 +1,83 @@
+﻿@using Common;
+@{
+    Layout = null;
+
+    vwEmployeeList employee = ViewBag.Employee;
+    List<vwAssetAssignment> assets = ViewBag.Assets;    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="~/Content/print.css" media="print"> 
+    <title>Employee Asset Assignments</title>
+</head>
+<body>
+    <div class="container">
+        <div class="no-print pull-right">
+            <button onclick="myFunction()">Print this page</button>
+            <script>
+                function myFunction() {
+                    window.print();
+                }
+            </script>
+        </div>
+        <h3>FASTrack Online Reports</h3>
+        <h4>Employee Asset Assignments</h4>
+        <hr />
+      
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        <p style="font-size:larger;font-style:oblique">@employee.EmployeeID</p>
+                    </th>
+                    <th colspan="4">
+                        <p style="font-size:larger;font-style:oblique">@employee.FirstName @employee.MiddleName @employee.LastName</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr style="padding-left:10px">
+                <th colspan="3">
+                    <p>
+                        @employee.Description
+                    </p>
+                </th>
+                <th colspan="4">
+                    <p>
+                        @employee.GroupName
+                    </p>
+                </th>
+            </tr>
+            <tr style="background-color:gray">
+                    <th style="text-align:center;width:100px">Assign ID</th>
+                    <th style="text-align: center;width:100px">Asset Tag</th>
+                    <th style="text-align: center;width:100px">Serial Number</th>
+                    <th style="text-align: center;width:100px">Type</th>
+                    <th style="text-align: center;width:120px">Brand</th>
+                    <th style="text-align: center;width:120px">Model</th>
+                    <th style="text-align: center">Date Accepted</th>
+            </tr>
+            @if (@assets != null && @assets.Count() > 0)
+            {
+                foreach (var item in@assets)
+                {
+                    <tr>
+                        <td style="text-align: center">@Html.DisplayFor(modelItem => item.AssetAssignmentID)</td>
+                        <td style="text-align: center">@Html.DisplayFor(modelItem => item.AssetTag)</td>
+                        <td style="text-align: center">@Html.DisplayFor(modelItem => item.SerialNumber)</td>
+                        <td style="text-align: left">@Html.DisplayFor(modelItem => item.TypeDescription)</td>
+                        <td style="text-align: left">@Html.DisplayFor(modelItem => item.Brand)</td>
+                        <td style="text-align: left">@Html.DisplayFor(modelItem => item.Model)</td>
+                        <td style="text-align: left">@String.Format("{0:MM-dd-yyyy}",item.DateAssigned)</td>
+                    </tr>
+                }
+            }
+
+        </table>
+    </div>
+</body>
+</html>

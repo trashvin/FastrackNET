@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62c498829d9347d1b86290227134bd53" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="FASTDBEntities.AccessRight" Width="2.125" PointX="0.5" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AssetAssignment" Width="2.125" PointX="0.5" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AssetClass" Width="2.125" PointX="0.5" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AssetStatu" Width="2.125" PointX="0.5" PointY="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AssetType" Width="2.125" PointX="0.5" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AssignmentStatu" Width="2.125" PointX="0.5" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AuditTrail" Width="2.125" PointX="0.5" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Department" Width="2.125" PointX="0.5" PointY="5.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Download" Width="2.125" PointX="0.5" PointY="5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Employee" Width="2.125" PointX="0.5" PointY="6" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.FixAsset" Width="1.5" PointX="3" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Issuer" Width="1.5" PointX="3" PointY="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Location" Width="1.5" PointX="3" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Position" Width="1.5" PointX="3" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Registration" Width="1.5" PointX="3" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwAccessRight" Width="2.875" PointX="5.5" PointY="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwAssetAssignment" Width="2.875" PointX="5.5" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwAssetAssignmentsForCustodian" Width="2.875" PointX="5.5" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwAssetAssignmentsForManager" Width="2.875" PointX="5.5" PointY="3.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwAssetAssignmentsForMI" Width="2.875" PointX="5.5" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwCustodiansList" Width="2.875" PointX="5.5" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwDepartmentList" Width="2.875" PointX="5.5" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwEmployeeList" Width="1.5" PointX="3.125" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwEmployee" Width="1.5" PointX="8.625" PointY="1" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwFixAssetList" Width="2.875" PointX="5.5" PointY="1.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwFixAsset" Width="2.875" PointX="8.625" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwManagersList" Width="1.5" PointX="3.125" PointY="5.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.vwMISList" Width="2.875" PointX="5.5" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.BulkUpload" Width="2.125" PointX="0.5" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Configuration" Width="2.125" PointX="0.5" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.Module" Width="1.5" PointX="3" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.AccessLevel" Width="2.125" PointX="0.5" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="FASTDBEntities.ReasonCode" Width="1.5" PointX="3" PointY="3" IsExpanded="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

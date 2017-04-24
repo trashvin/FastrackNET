@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Common.BulkUpload>
+@{
+    ViewBag.Title = "Bulk Upload History";
+
+    var list = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "listContainer");
+    list.Pager(WebGridPagerModes.NextPrevious);
+}
+
+<br />
+<div id="listContainer">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bulk Upload History</h3>
+        </div>
+        <div class="panel-body">
+            @list.GetHtml(tableStyle: "table table-striped table-hover", headerStyle: "header", alternatingRowStyle: "alternateRow", selectedRowStyle: "select",
+        columns: list.Columns(
+                 list.Column("EmployeeID", "Employee ID", canSort: true, style: "col-lg-1"),
+                          list.Column("RequestDate", "Request Date", canSort: true, style: "col-lg-2"),
+                 list.Column("FilePath", "File Path", canSort: true, style: "col-lg-4"),
+                 list.Column("TotalRecords", "Records", canSort: true, style: "col-lg-1"),
+                 list.Column("TotalInserts", "Inserts", canSort: true, style: "col-lg-1"),
+                 list.Column("Status", "Status", canSort: true, style: "col-lg-2",format: (item) =>
+                              {
+                                            if ( item.Status == 1)
+                                            {
+                                                return Html.Raw("<p>Successful</p>");
+                                            }
+                                            else if (item.Status == 0)
+                                            {
+                                                return Html.Raw("<p>New</p>");
+                                            }
+                                            if (item.Status == -1)
+                                            {
+                                                return Html.Raw("<p>In Progress</p>");
+                                            }
+                                            if (item.Status == -2)
+                                            {
+                                                return Html.Raw("<p>Not Found</p>");
+                                            }
+                                            else
+                                            {
+                                                return Html.Raw("<p>Failed</p>");
+                                            }
+                                      })
+                ))
+        </div>
+    </div>
+</div>
+
