@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Module]
+(
+	[ModuleID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Description] NVARCHAR(50) NOT NULL
+)

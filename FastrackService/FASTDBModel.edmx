@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FASTDBEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FASTDBEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccessLevel">
           <Key>
             <PropertyRef Name="AccessLevelID" />
@@ -600,27 +600,27 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="FASTDBEntitiesStoreContainer">
-          <EntitySet Name="AccessLevel" EntityType="Self.AccessLevel" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AccessRight" EntityType="Self.AccessRight" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AssetAssignment" EntityType="Self.AssetAssignment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AssetClass" EntityType="Self.AssetClass" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AssetStatus" EntityType="Self.AssetStatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AssetType" EntityType="Self.AssetType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AssignmentStatus" EntityType="Self.AssignmentStatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BulkUpload" EntityType="Self.BulkUpload" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Download" EntityType="Self.Download" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FixAsset" EntityType="Self.FixAsset" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Issuer" EntityType="Self.Issuer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReasonCode" EntityType="Self.ReasonCode" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="vwAccessRights" EntityType="Self.vwAccessRights" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="AccessLevel" EntityType="Self.AccessLevel" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AccessRight" EntityType="Self.AccessRight" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AssetAssignment" EntityType="Self.AssetAssignment" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AssetClass" EntityType="Self.AssetClass" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AssetStatus" EntityType="Self.AssetStatus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AssetType" EntityType="Self.AssetType" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AssignmentStatus" EntityType="Self.AssignmentStatus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BulkUpload" EntityType="Self.BulkUpload" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Download" EntityType="Self.Download" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="FixAsset" EntityType="Self.FixAsset" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Issuer" EntityType="Self.Issuer" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ReasonCode" EntityType="Self.ReasonCode" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="vwAccessRights" EntityType="Self.vwAccessRights" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwAccessRights].[AccessID] AS [AccessID], 
     [vwAccessRights].[EmployeeID] AS [EmployeeID], 
@@ -632,7 +632,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwAccessRights].[AccessLevel] AS [AccessLevel]
     FROM [dbo].[vwAccessRights] AS [vwAccessRights]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwAssetAssignments" EntityType="Self.vwAssetAssignments" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwAssetAssignments" EntityType="Self.vwAssetAssignments" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwAssetAssignments].[AssetAssignmentID] AS [AssetAssignmentID], 
     [vwAssetAssignments].[EmployeeID] AS [EmployeeID], 
@@ -661,7 +661,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwAssetAssignments].[LastActivity] AS [LastActivity]
     FROM [dbo].[vwAssetAssignments] AS [vwAssetAssignments]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwAssetAssignmentsForCustodians" EntityType="Self.vwAssetAssignmentsForCustodians" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwAssetAssignmentsForCustodians" EntityType="Self.vwAssetAssignmentsForCustodians" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwAssetAssignmentsForCustodians].[AssetAssignmentID] AS [AssetAssignmentID], 
     [vwAssetAssignmentsForCustodians].[EmployeeID] AS [EmployeeID], 
@@ -700,7 +700,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwAssetAssignmentsForCustodians].[FromEmail] AS [FromEmail]
     FROM [dbo].[vwAssetAssignmentsForCustodians] AS [vwAssetAssignmentsForCustodians]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwAssetAssignmentsForManagers" EntityType="Self.vwAssetAssignmentsForManagers" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwAssetAssignmentsForManagers" EntityType="Self.vwAssetAssignmentsForManagers" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwAssetAssignmentsForManagers].[AssetAssignmentID] AS [AssetAssignmentID], 
     [vwAssetAssignmentsForManagers].[EmployeeID] AS [EmployeeID], 
@@ -739,7 +739,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwAssetAssignmentsForManagers].[FromEmail] AS [FromEmail]
     FROM [dbo].[vwAssetAssignmentsForManagers] AS [vwAssetAssignmentsForManagers]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwAssetAssignmentsForMIS" EntityType="Self.vwAssetAssignmentsForMIS" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwAssetAssignmentsForMIS" EntityType="Self.vwAssetAssignmentsForMIS" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwAssetAssignmentsForMIS].[AssetAssignmentID] AS [AssetAssignmentID], 
     [vwAssetAssignmentsForMIS].[EmployeeID] AS [EmployeeID], 
@@ -778,7 +778,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwAssetAssignmentsForMIS].[FromEmail] AS [FromEmail]
     FROM [dbo].[vwAssetAssignmentsForMIS] AS [vwAssetAssignmentsForMIS]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwCustodiansList" EntityType="Self.vwCustodiansList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwCustodiansList" EntityType="Self.vwCustodiansList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwCustodiansList].[EmployeeID] AS [EmployeeID], 
     [vwCustodiansList].[FirstName] AS [FirstName], 
@@ -790,14 +790,14 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwCustodiansList].[DepartmentName] AS [DepartmentName]
     FROM [dbo].[vwCustodiansList] AS [vwCustodiansList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwDepartmentList" EntityType="Self.vwDepartmentList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwDepartmentList" EntityType="Self.vwDepartmentList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwDepartmentList].[DepartmentID] AS [DepartmentID], 
     [vwDepartmentList].[DepartmentName] AS [DepartmentName], 
     [vwDepartmentList].[GroupName] AS [GroupName]
     FROM [dbo].[vwDepartmentList] AS [vwDepartmentList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwEmployeeList" EntityType="Self.vwEmployeeList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwEmployeeList" EntityType="Self.vwEmployeeList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwEmployeeList].[EmployeeID] AS [EmployeeID], 
     [vwEmployeeList].[FirstName] AS [FirstName], 
@@ -818,7 +818,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwEmployeeList].[Status] AS [Status]
     FROM [dbo].[vwEmployeeList] AS [vwEmployeeList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwEmployees" EntityType="Self.vwEmployees" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwEmployees" EntityType="Self.vwEmployees" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwEmployees].[EmployeeID] AS [EmployeeID], 
     [vwEmployees].[FirstName] AS [FirstName], 
@@ -839,7 +839,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwEmployees].[Status] AS [Status]
     FROM [dbo].[vwEmployees] AS [vwEmployees]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwFixAssetList" EntityType="Self.vwFixAssetList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwFixAssetList" EntityType="Self.vwFixAssetList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwFixAssetList].[FixAssetID] AS [FixAssetID], 
     [vwFixAssetList].[Model] AS [Model], 
@@ -863,7 +863,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwFixAssetList].[StatusDescription] AS [StatusDescription]
     FROM [dbo].[vwFixAssetList] AS [vwFixAssetList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwFixAssets" EntityType="Self.vwFixAssets" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwFixAssets" EntityType="Self.vwFixAssets" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwFixAssets].[FixAssetID] AS [FixAssetID], 
     [vwFixAssets].[Model] AS [Model], 
@@ -887,7 +887,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwFixAssets].[StatusDescription] AS [StatusDescription]
     FROM [dbo].[vwFixAssets] AS [vwFixAssets]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwManagersList" EntityType="Self.vwManagersList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwManagersList" EntityType="Self.vwManagersList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwManagersList].[EmployeeID] AS [EmployeeID], 
     [vwManagersList].[FirstName] AS [FirstName], 
@@ -899,7 +899,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     [vwManagersList].[DepartmentName] AS [DepartmentName]
     FROM [dbo].[vwManagersList] AS [vwManagersList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwMISList" EntityType="Self.vwMISList" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwMISList" EntityType="Self.vwMISList" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [vwMISList].[EmployeeID] AS [EmployeeID], 
     [vwMISList].[FirstName] AS [FirstName], 
@@ -915,12 +915,12 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="FASTDBEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="FASTDBEntities" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="AccessRight">
           <Key>
             <PropertyRef Name="AccessID" />
           </Key>
-          <Property Name="AccessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="AccessLevel" Type="Int16" Nullable="false" />
@@ -929,7 +929,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="AssetAssignmentID" />
           </Key>
-          <Property Name="AssetAssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetAssignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="FixAssetID" Type="Int32" Nullable="false" />
           <Property Name="AssignmentStatusID" Type="Int32" Nullable="false" />
@@ -944,21 +944,21 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="AssetClassID" />
           </Key>
-          <Property Name="AssetClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ClassDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="AssetStatu">
           <Key>
             <PropertyRef Name="AssetStatusID" />
           </Key>
-          <Property Name="AssetStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="StatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="AssetType">
           <Key>
             <PropertyRef Name="AssetTypeID" />
           </Key>
-          <Property Name="AssetTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AssetClassID" Type="Int32" Nullable="false" />
         </EntityType>
@@ -966,14 +966,14 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="AssignmentStatusID" />
           </Key>
-          <Property Name="AssignmentStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignmentStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="StatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="AuditTrail">
           <Key>
             <PropertyRef Name="AuditTrailID" />
           </Key>
-          <Property Name="AuditTrailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuditTrailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -985,7 +985,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="DepartmentID" />
           </Key>
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -993,7 +993,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Link" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1022,7 +1022,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="AssetTag" />
           </Key>
-          <Property Name="FixAssetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FixAssetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AssetTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1040,7 +1040,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="IssuerID" />
           </Key>
-          <Property Name="IssuerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IssuerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="IssuerType" Type="Int32" Nullable="false" />
           <Property Name="IssuerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
@@ -1048,7 +1048,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="LocationID" />
           </Key>
-          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Country" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
@@ -1056,14 +1056,14 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="PositionID" />
           </Key>
-          <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Registration">
           <Key>
             <PropertyRef Name="RegistrationID" />
           </Key>
-          <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="Int16" Nullable="false" />
@@ -1269,7 +1269,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
             <PropertyRef Name="DepartmentID" />
             <PropertyRef Name="DepartmentName" />
           </Key>
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1435,7 +1435,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="FASTDBModel" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FASTDBModel" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="AccessRights" EntityType="Self.AccessRight" />
           <EntitySet Name="AssetAssignments" EntityType="Self.AssetAssignment" />
           <EntitySet Name="AssetClasses" EntityType="Self.AssetClass" />
@@ -1474,7 +1474,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TotalRecords" Type="Int32" />
@@ -1487,7 +1487,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="ConfigID" />
           </Key>
-          <Property Name="ConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsEncrypted" Type="Boolean" />
@@ -1500,14 +1500,14 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="ModuleID" />
           </Key>
-          <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AccessLevel">
           <Key>
             <PropertyRef Name="AccessLevelID" />
           </Key>
-          <Property Name="AccessLevelID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccessLevelID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AccessMode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1515,7 +1515,7 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
           <Key>
             <PropertyRef Name="ReasonID" />
           </Key>
-          <Property Name="ReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ReasonDescription" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ModuleID" Type="Int32" />
         </EntityType>
@@ -2069,22 +2069,22 @@ warning 6002: The table/view 'FASTDB.dbo.vwMISList' does not have a primary key 
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>
