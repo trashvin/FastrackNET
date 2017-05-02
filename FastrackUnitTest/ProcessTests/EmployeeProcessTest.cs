@@ -12,9 +12,9 @@ namespace FastrackUnitTest.ProcessTests
         [TestMethod]
         public void TestGetEmployeeByID()
         {
-            int result = employeeProcess.GetEmployeeByID(332534).EmployeeID;
+            int result = employeeProcess.GetEmployeeByID(1111).EmployeeID;
 
-            Assert.AreEqual(result, 332534);
+            Assert.AreEqual(result, 1111);
         }
 
         [TestMethod]
